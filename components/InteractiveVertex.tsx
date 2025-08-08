@@ -52,7 +52,7 @@ export function InteractiveVertex({ vertex }: InteractiveVertexProps) {
     }
   );
 
-  const handleClick: (event: ThreeEvent<MouseEvent>) => void = (event) => {
+  const handleClick = (event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation();
     if (editMode === 'vertex') {
       setSelectedVertex(isSelected ? null : vertex.id);
@@ -60,7 +60,7 @@ export function InteractiveVertex({ vertex }: InteractiveVertexProps) {
     }
   };
 
-  const handlePointerOver: (event: ThreeEvent<PointerEvent>) => void = (event) => {
+  const handlePointerOver = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     setHovered(true);
     if (isVisible) {
@@ -68,7 +68,7 @@ export function InteractiveVertex({ vertex }: InteractiveVertexProps) {
     }
   };
 
-  const handlePointerOut: (event: ThreeEvent<PointerEvent>) => void = (event) => {
+  const handlePointerOut = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     setHovered(false);
     if (!dragging) {
