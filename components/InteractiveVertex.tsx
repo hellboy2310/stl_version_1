@@ -52,13 +52,13 @@ export function InteractiveVertex({ vertex }: InteractiveVertexProps) {
     }
   );
 
-  const handleClick = (event: ThreeEvent<MouseEvent>) => {
-    event.stopPropagation();
-    if (editMode === 'vertex') {
-      setSelectedVertex(isSelected ? null : vertex.id);
-      highlightVertex(isSelected ? null : vertex.id);
-    }
-  };
+  const handleClick = (event: any) => {
+  event.stopPropagation();
+  if (editMode === 'vertex') {
+    setSelectedVertex(isSelected ? null : vertex.id);
+    highlightVertex(isSelected ? null : vertex.id);
+  }
+};
 
   const handlePointerOver = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
@@ -103,8 +103,8 @@ export function InteractiveVertex({ vertex }: InteractiveVertexProps) {
       onClick={handleClick}
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
-      {...bind()}
-    >
+      {...(bind() as unknown as JSX.IntrinsicElements['mesh'])}>
+
       <sphereGeometry args={[0.05, 16, 16]} />
       <meshLambertMaterial
         color={sphereColor}
